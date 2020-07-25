@@ -6,7 +6,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(title: Text('My First App')),
+        appBar: AppBar(
+          title: Text('My First App'),
+        ),
         body: Text('this is default text!'),
       ),
     );
