@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_complete_guide/quiz.dart';
+import 'package:flutter_complete_guide/result.dart';
 
 void main() => runApp(MyApp());
 
@@ -37,19 +38,16 @@ class _MyAppState extends State<MyApp> {
     ];
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          title: Text('My First App'),
-        ),
-        body: _questionIndex < questions.length
-            ? Quiz(
-                questionIndex: _questionIndex,
-                questions: questions,
-                answerQuestion: _answerQuestion,
-              )
-            : Center(
-                child: Text('You did it!'),
-              ),
-      ),
+          appBar: AppBar(
+            title: Text('My First App'),
+          ),
+          body: _questionIndex < questions.length
+              ? Quiz(
+                  questionIndex: _questionIndex,
+                  questions: questions,
+                  answerQuestion: _answerQuestion,
+                )
+              : Result()),
     );
   }
 }
