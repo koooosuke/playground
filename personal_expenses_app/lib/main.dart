@@ -26,7 +26,7 @@ class MyHomePage extends StatelessWidget {
       title: 'Weekly Groceries',
       amount: 16.52,
       date: DateTime.now(),
-    )
+    ),
   ];
   @override
   Widget build(BuildContext context) {
@@ -46,10 +46,13 @@ class MyHomePage extends StatelessWidget {
                 elevation: 5,
               ),
             ),
-            Card(
-              color: Colors.red,
-              child: Text('LIST OF TX'),
-            ),
+            Column(
+              children: transaction.map((tx) {
+                return Card(
+                  child: Text(tx.title),
+                );
+              }).toList(),
+            )
           ],
         ));
   }
