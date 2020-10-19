@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import Radium from 'radium';
 import './Person.css'
 
 type Props = {
@@ -16,4 +17,4 @@ const Person: FC<Props> = ({ name, age, children, click, change }) => (
   </div>
 );
 
-export default Person;
+export default Radium(Person);

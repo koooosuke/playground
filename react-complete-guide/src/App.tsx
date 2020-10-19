@@ -1,6 +1,7 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useState } from 'react';
 import './App.css';
-import Person from './Person/Person'
+import Radium from 'radium';
+import Person from './Person/Person';
 
 const App: FC = () => {
   const [persons, setPersons] = useState([
@@ -31,17 +32,39 @@ const App: FC = () => {
   }
 
   const style = {
-    backgroundColor: 'white',
+    backgroundColor: 'green',
+    color: 'white',
     font: 'inherit',
     border: '1px solid blue',
     padding: '8px',
-    cursor: 'pointer'
+    cursor: 'pointer',
+    ':hover': {
+      backgroundColor: 'lightgreen',
+      color: 'black'
+    }
   };
+
+  const classes = [];
+
+  if(persons.length <= 2) {
+    classes.push('red');
+  }
+  if(persons.length <= 1) {
+    classes.push('bold');
+  }
+
+  if(showPersons) {
+    style.backgroundColor = 'red'
+    style[':hover'] = {
+      backgroundColor: 'salmon',
+      color: 'black'
+    }
+  }
 
   return (
     <div className="App">
       <h1>Hi, I'm React App</h1>
-      <p>this is really wordking!</p>
+      <p className={classes.join(' ')}>this is really wordking!</p>
       <button style={style} onClick={togglePersonsHalder}>Toggle Persons</button>
       {showPersons ?
         <div>
@@ -59,4 +82,4 @@ const App: FC = () => {
   )
 }
 
-export default App;
+export default Radium(App);
