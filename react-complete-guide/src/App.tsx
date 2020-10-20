@@ -1,7 +1,22 @@
 import React, { FC, useState } from 'react';
+import styled from 'styled-components';
+
 import './App.css';
-import Radium from 'radium';
 import Person from './Person/Person';
+
+const StyledButton = styled.button<{ showPersons: boolean }>`
+  background-color: ${props => props.showPersons ? 'red' : 'green'};
+  color: white;
+  font: inherit;
+  border: 1px solid blue;
+  padding: 8px;
+  cursor: pointer;
+  
+  &:hover {
+    background-color: ${props => props.showPersons ? 'salmon' : 'lightgreen'};
+    color: black;
+  }
+`
 
 const App: FC = () => {
   const [persons, setPersons] = useState([
@@ -31,19 +46,6 @@ const App: FC = () => {
     setPersons(dupPersons)
   }
 
-  const style = {
-    backgroundColor: 'green',
-    color: 'white',
-    font: 'inherit',
-    border: '1px solid blue',
-    padding: '8px',
-    cursor: 'pointer',
-    ':hover': {
-      backgroundColor: 'lightgreen',
-      color: 'black'
-    }
-  };
-
   const classes = [];
 
   if(persons.length <= 2) {
@@ -53,19 +55,13 @@ const App: FC = () => {
     classes.push('bold');
   }
 
-  if(showPersons) {
-    style.backgroundColor = 'red'
-    style[':hover'] = {
-      backgroundColor: 'salmon',
-      color: 'black'
-    }
-  }
-
   return (
     <div className="App">
       <h1>Hi, I'm React App</h1>
       <p className={classes.join(' ')}>this is really wordking!</p>
-      <button style={style} onClick={togglePersonsHalder}>Toggle Persons</button>
+      <StyledButton showPersons={showPersons} onClick={togglePersonsHalder}>
+        Toggle Persons 
+      </StyledButton> 
       {showPersons ?
         <div>
           {persons.map((p, index) => (
@@ -76,10 +72,10 @@ const App: FC = () => {
             click={() => deletePersonHandler(index)}
             change={(event) => switchNameChangeHandler(event, p.id)} />)
           )}
-        </div> : null
+      </div> : null
       }
     </div>
   )
 }
 
-export default Radium(App);
+export default App;
