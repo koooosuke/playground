@@ -1,5 +1,6 @@
-import React, { FC } from 'react';
-import { View, StyleSheet, Text } from 'react-native';
+import React, { FC, useContext } from 'react';
+import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
+import * as UiContext from '../../../contexts/ui';
 
 const styles = StyleSheet.create({
   container: {
@@ -9,9 +10,20 @@ const styles = StyleSheet.create({
   },
 });
 
+const ChangeStateButton: FC<{ state: UiContext.Status }> = ({ state }) => {
+  const { setApplicationState } = useContext(UiContext.Context);
+  return (
+    <TouchableOpacity onPress={() => setApplicationState(state)}>
+      <Text>Change state to {state} </Text>
+    </TouchableOpacity>
+  );
+};
+
 const Loading: FC = () => (
   <View style={styles.container}>
-    <Text>Loading</Text>
+    <ChangeStateButton state={UiContext.Status.AUTHORIZED} />
+    <ChangeStateButton state={UiContext.Status.UN_AUTHORIZED} />
+    <ChangeStateButton state={UiContext.Status.FIRST_OPEN} />
   </View>
 );
 
