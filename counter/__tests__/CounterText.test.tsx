@@ -7,4 +7,8 @@ describe('CounterText', () => {
     const component = renderer.create(<CounterText count={0} />).toJSON();
     expect(component).toMatchSnapshot();
   });
+  it('カウントが10以上のときのテキストが表示されているCounterTextを描画ができる', () => {
+    const component = renderer.create(<CounterText count={10} />);
+    expect(component).toMatchSnapshot();
+  });
 });
