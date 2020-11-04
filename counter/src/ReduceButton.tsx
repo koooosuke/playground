@@ -1,22 +1,5 @@
 import React, { FC, useCallback } from 'react';
-import { Text, TouchableOpacity, StyleSheet } from 'react-native';
-
-const styles = StyleSheet.create({
-  button: {
-    backgroundColor: '#008080',
-    width: 50,
-    height: 50,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  buttnText: {
-    color: 'white',
-    fontSize: 20,
-  },
-  disabledButton: {
-    backgroundColor: 'gray',
-  },
-});
+import Button from './components/atoms/Button';
 
 interface Props {
   count: number;
@@ -27,15 +10,7 @@ const ReduceButton: FC<Props> = ({ count, setCounter }) => {
   const reduceCounter = useCallback(() => {
     setCounter(count - 1);
   }, [count, setCounter]);
-  return (
-    <TouchableOpacity
-      style={[styles.button, count <= 0 && styles.disabledButton]}
-      onPress={reduceCounter}
-      disabled={count <= 0}
-    >
-      <Text style={styles.buttnText}>-</Text>
-    </TouchableOpacity>
-  );
+  return <Button disabled={count <= 0} label="-" onPress={reduceCounter} />;
 };
 
 export default ReduceButton;
