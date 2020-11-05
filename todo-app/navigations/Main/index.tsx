@@ -91,11 +91,7 @@ const TabWithModalRoutes: FC = () => (
 );
 
 const ChooseLoginNavigator: FC = () => (
-  <ChooseLoginStack.Navigator
-    mode="modal"
-    headerMode="none"
-    screenOptions={{ cardStyle, headerStyle, headerTintColor }}
-  >
+  <ChooseLoginStack.Navigator mode="modal" screenOptions={{ cardStyle, headerStyle, headerTintColor }}>
     <ChooseLoginStack.Screen name={CHOOSE_LOGIN} component={ChooseLogin} options={{ title: 'Choose login' }} />
     <ChooseLoginStack.Screen name={SIGN_UP} component={SignUp} options={{ title: 'Sign in' }} />
     <ChooseLoginStack.Screen name={SIGN_IN} component={SignIn} options={{ title: 'Sign up' }} />
