@@ -35,16 +35,22 @@ const forFade = ({ current }: StackCardInterpolationProps) => ({
 const cardStyle = {
   backgroundColor: Colors.main,
 };
-
+const drawerStyle = {
+  backgroundColor: Colors.main,
+};
+const drawerOntentOptions = {
+  activeTintColor: Colors.primary,
+  inactiveTintColor: Colors.white,
+};
 const HomeWithDrawer: FC = () => (
-  <HomeDrawer.Navigator initialRouteName={HOME}>
+  <HomeDrawer.Navigator initialRouteName={HOME} drawerStyle={drawerStyle} drawerContentOptions={drawerOntentOptions}>
     <HomeDrawer.Screen name={HOME} component={Home} />
     <HomeDrawer.Screen name={USER_INFO} component={UserInfo} />
   </HomeDrawer.Navigator>
 );
 
 const StatisticsWithDrawer: FC = () => (
-  <StatisticsDrawer.Navigator>
+  <StatisticsDrawer.Navigator drawerStyle={drawerStyle} drawerContentOptions={drawerOntentOptions}>
     <StatisticsDrawer.Screen name={STATISTICS} component={Statistics} />
     <StatisticsDrawer.Screen name={USER_INFO} component={UserInfo} />
   </StatisticsDrawer.Navigator>
