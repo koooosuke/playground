@@ -18,6 +18,8 @@ import Home from './Home';
 import Statistics from './Statistics';
 import UserInfo from './UserInfo';
 import * as UiContext from '../../contexts/ui';
+import Colors from '../../constants/colors';
+import { headerStyle, headerTintColor } from '../Header';
 
 const Stack = createStackNavigator();
 const ModalStack = createStackNavigator();
@@ -30,6 +32,9 @@ const forFade = ({ current }: StackCardInterpolationProps) => ({
     opacity: current.progress,
   },
 });
+const cardStyle = {
+  backgroundColor: Colors.main,
+};
 
 const HomeWithDrawer: FC = () => (
   <HomeDrawer.Navigator initialRouteName={HOME}>
@@ -73,17 +78,21 @@ const TabRoutes: FC = () => (
 );
 
 const TabWithModalRoutes: FC = () => (
-  <ModalStack.Navigator mode="modal" headerMode="none">
+  <ModalStack.Navigator mode="modal" headerMode="none" screenOptions={{ cardStyle }}>
     <Stack.Screen name={HOME} component={TabRoutes} />
     <Stack.Screen name={INPUT} component={Input} />
   </ModalStack.Navigator>
 );
 
 const ChooseLoginNavigator: FC = () => (
-  <ChooseLoginStack.Navigator mode="modal" headerMode="none">
-    <ChooseLoginStack.Screen name={CHOOSE_LOGIN} component={ChooseLogin} />
-    <ChooseLoginStack.Screen name={SIGN_UP} component={SignUp} />
-    <ChooseLoginStack.Screen name={SIGN_IN} component={SignIn} />
+  <ChooseLoginStack.Navigator
+    mode="modal"
+    headerMode="none"
+    screenOptions={{ cardStyle, headerStyle, headerTintColor }}
+  >
+    <ChooseLoginStack.Screen name={CHOOSE_LOGIN} component={ChooseLogin} options={{ title: 'Choose login' }} />
+    <ChooseLoginStack.Screen name={SIGN_UP} component={SignUp} options={{ title: 'Sign in' }} />
+    <ChooseLoginStack.Screen name={SIGN_IN} component={SignIn} options={{ title: 'Sign up' }} />
   </ChooseLoginStack.Navigator>
 );
 
