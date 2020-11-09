@@ -70,7 +70,13 @@ const getActionRouteName = (state: any): string => {
 
 const TabRoutes: FC = () => (
   <Tab.Navigator
-    initialRouteName={HOME}
+    tabBarOptions={{
+      inactiveTintColor: Colors.white,
+      activeTintColor: Colors.primary,
+      style: {
+        backgroundColor: Colors.main,
+      },
+    }}
     screenOptions={(props: any) => {
       const routeName = getActionRouteName(props.route.state);
       return {

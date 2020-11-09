@@ -10,7 +10,7 @@ const HeaderLeft: FC = () => {
     dispatch(DrawerActions.openDrawer());
   }, [dispatch]);
 
-  return <FontAwesome.Button name="bars" color={Colors.white} onPress={onPress} />;
+  return <FontAwesome.Button name="bars" color={Colors.white} backgroundColor={Colors.main} onPress={onPress} />;
 };
 
 export default HeaderLeft;
