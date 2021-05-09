@@ -48,35 +48,20 @@ class _MyHomePageState extends State<MyHomePage>
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            AnimatedOpacity(
-              opacity: flag ? 0.1 : 1.0,
+            AnimatedContainer(
               duration: Duration(seconds: 3),
-              child: Text(
-                '消える文字',
-                style: Theme.of(context).textTheme.headline4,
-              ),
+              width: flag ? 100 : 50,
+              height: flag ? 50 : 100,
+              padding: flag ? EdgeInsets.all(0) : EdgeInsets.all(30),
+              margin: flag ? EdgeInsets.all(0) : EdgeInsets.all(30),
+              transform: flag ? Matrix4.skewX(0.0) : Matrix4.skewX(0.3),
+              color: flag ? Colors.blue : Colors.grey,
             ),
-            AnimatedSize(
+            AnimatedSwitcher(
               duration: Duration(seconds: 3),
-              vsync: this,
-              child: SizedBox(
-                width: flag ? 50 : 200,
-                height: flag ? 50 : 200,
-                child: Container(
-                  color: Colors.purple,
-                ),
-              ),
-            ),
-            AnimatedAlign(
-              alignment: flag ? Alignment.topLeft : Alignment.bottomRight,
-              duration: Duration(seconds: 3),
-              child: SizedBox(
-                width: 50,
-                height: 50,
-                child: Container(
-                  color: Colors.green,
-                ),
-              ),
+              child: flag
+                  ? Text('なにもない')
+                  : Icon(Icons.favorite, color: Colors.pink),
             )
           ],
         ),
