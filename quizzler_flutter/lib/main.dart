@@ -49,14 +49,17 @@ class _QuizzlerState extends State<Quizzler> {
                     onAnswer(false);
                   },
                 ),
-                Row(
-                  children: results
-                      .map(
-                        (result) => QuizzResult(
-                          result: result,
-                        ),
-                      )
-                      .toList(),
+                Container(
+                  height: 15.0,
+                  child: Row(
+                    children: results
+                        .map(
+                          (result) => QuizzResult(
+                            result: result,
+                          ),
+                        )
+                        .toList(),
+                  ),
                 )
               ],
             ),
