@@ -12,7 +12,7 @@ class Quizzler extends StatefulWidget {
 }
 
 class _QuizzlerState extends State<Quizzler> {
-  final results = [];
+  List<bool> results = [];
   int questionIndex = 0;
 
   onAnswer(bool answer) {
@@ -37,14 +37,11 @@ class _QuizzlerState extends State<Quizzler> {
                   question: questions[questionIndex]['question'],
                 ),
                 QuizzButton(
-                  color: Colors.green,
-                  text: 'True',
-                  onAnswer: () {
-                    print('good');
-                    onAnswer(true);
-                    print(results);
-                  },
-                ),
+                    color: Colors.green,
+                    text: 'True',
+                    onAnswer: () {
+                      onAnswer(true);
+                    }),
                 QuizzButton(
                   color: Colors.red,
                   text: 'False',
