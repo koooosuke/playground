@@ -1,5 +1,8 @@
+import 'package:destini_challenge_starting/story_brain.dart';
 import 'package:destini_challenge_starting/widgets/select_button.dart';
 import 'package:flutter/material.dart';
+
+StoryBrain storyBrain = StoryBrain();
 
 void main() {
   runApp(
@@ -17,6 +20,12 @@ class DestiniApp extends StatefulWidget {
 }
 
 class _DestiniAppState extends State<DestiniApp> {
+  void onPressed() {
+    setState(() {
+      storyBrain.nextStory();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -36,25 +45,27 @@ class _DestiniAppState extends State<DestiniApp> {
               flex: 6,
               child: Center(
                 child: Text(
-                  'question',
+                  storyBrain.getStoryTitle(),
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 30,
+                    fontSize: 20,
                   ),
                 ),
               ),
             ),
             Expanded(
               child: SelectButton(
+                onPressed: onPressed,
                 buttonColor: Colors.red,
-                text: 'button',
+                text: storyBrain.getStoryChoice1(),
                 textColor: Colors.white,
               ),
             ),
             Expanded(
               child: SelectButton(
+                onPressed: onPressed,
                 buttonColor: Colors.blue,
-                text: 'button',
+                text: storyBrain.getStoryChoice2(),
                 textColor: Colors.white,
               ),
             )

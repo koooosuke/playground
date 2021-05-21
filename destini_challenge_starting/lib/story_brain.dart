@@ -1,6 +1,8 @@
 import 'package:destini_challenge_starting/story.dart';
 
 class StoryBrain {
+  int _storyIndex = 0;
+
   List<Story> _storyData = [
     Story(
         'Your car has blown a tire on a winding road in the middle of nowhere with no cell phone reception. You decide to hitchhike. A rusty pickup truck rumbles to a stop next to you. A man with a wide brimmed hat with soulless eyes opens the passenger door for you and asks: "Need a ride, boy?".',
@@ -27,4 +29,22 @@ class StoryBrain {
         'Restart',
         '')
   ];
+
+  void nextStory() {
+    if (_storyIndex < _storyData.length - 1) {
+      _storyIndex++;
+    }
+  }
+
+  String getStoryTitle() {
+    return _storyData[_storyIndex].storyTitle;
+  }
+
+  String getStoryChoice1() {
+    return _storyData[_storyIndex].choice1;
+  }
+
+  String getStoryChoice2() {
+    return _storyData[_storyIndex].choice2;
+  }
 }
