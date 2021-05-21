@@ -1,0 +1,3 @@
+#include "Release.xcconfig"
+FLUTTER_FLAVOR=Development
+ASSETCATALOG_COMPILER_APPICON_NAME=AppIcon-development
