@@ -3,8 +3,13 @@ using namespace std;
 
 int main()
 {
-  cout << "8進数101の文字列コードをもつ文字は" << '\101' << "です。\n";
-  cout << "16進数61の文字コードを持つ文字は" << '\x61' << "です。\n";
+  int num = 0;
+
+  cout << "整数を入力してください。\n";
+
+  cin >> num;
+
+  cout << num << "が入力されました。\n";
 
   return 0;
 }

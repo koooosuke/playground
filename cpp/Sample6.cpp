@@ -3,10 +3,14 @@ using namespace std;
 
 int main()
 {
-  cout << "10進数の10は" << 10 << "です。\n";
-  cout << "8進数の10は" << 010 << "です。\n";
-  cout << "16進数の10は" << 0x10 << "です。\n";
-  cout << "16進数のFは" << 0xF << "です。\n";
+  int num1, num2;
+
+  cout << "整数を2つ入力してください。\n";
+
+  cin >> num1 >> num2;
+
+  cout << "最初に" << num1 << "が入力されました。\n";
+  cout << "次に" << num2 << "が入力されました。\n";
 
   return 0;
 }

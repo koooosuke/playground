@@ -3,8 +3,11 @@ using namespace std;
 
 int main()
 {
-  cout << "ようこそC++へ!\n";
-  cout << "C++をはじめましょう!\n";
+  int num;
+
+  num = 3;
+
+  cout << "変数のnumの値は" << num << "です。\n";
 
   return 0;
 }
