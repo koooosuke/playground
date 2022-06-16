@@ -3,13 +3,12 @@ using namespace std;
 
 int main()
 {
-  int num = 0;
+  int a = 0;
+  int b = 0;
 
-  cout << "整数を入力してください。\n";
+  b = ++a;
 
-  cin >> num;
-
-  cout << num << "が入力されました。\n";
+  cout << "代入後にインクリメントしたのでbの値は" << b << "です。\n";
 
   return 0;
 }

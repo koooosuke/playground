@@ -5,14 +5,13 @@ int main()
 {
   int num1, num2;
 
-  num1 = 3;
+  cout << "整数1を入力してください。\n";
+  cin >> num1;
 
-  cout << "変数num1の値は" << num1 << "です。\n";
+  cout << "整数2を入力してください。\n";
+  cin >> num2;
 
-  num2 = num1;
-
-  cout << "変数num1の値をnum2に代入しました。\n";
-  cout << "変数num2の値は" << num2 << "です。\n";
+  cout << "たし算の結果は" << num1 + num2 << "です。\n";
 
   return 0;
 }

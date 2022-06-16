@@ -3,14 +3,20 @@ using namespace std;
 
 int main()
 {
-  int num1, num2;
+  int sum = 0;
+  int num = 0;
 
-  cout << "整数を2つ入力してください。\n";
+  cout << "1番目の整数を入力してください。\n";
+  cin >> num;
+  sum += num;
+  cout << "2番目の整数を入力してください。\n";
+  cin >> num;
+  sum += num;
+  cout << "3番目の整数を入力してください。\n";
+  cin >> num;
+  sum += num;
 
-  cin >> num1 >> num2;
-
-  cout << "最初に" << num1 << "が入力されました。\n";
-  cout << "次に" << num2 << "が入力されました。\n";
+  cout << "3つの数の合計は" << sum << "です。\n";
 
   return 0;
 }
